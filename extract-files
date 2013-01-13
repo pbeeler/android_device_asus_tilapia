@@ -18,7 +18,7 @@
 export DEVICE=tilapia
 export MANUFACTURER=asus
 
-export DIRSRC="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" && cd $DIRSRC/device/$MANUFACTURER/$DEVICE;
+export DIRSRC="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" && cd $DIRSRC;
 
 export BASE=../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 mkdir -p $BASE
@@ -33,4 +33,4 @@ for FILE in `cat proprietary-blobs.txt | grep -v "^#"`; do
     adb pull $FILE $BASE/
 done
 
-bash setup-makefiles && cd $DIRSRC;
+bash setup-makefiles && cd ../../../;
